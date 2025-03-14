@@ -51,7 +51,7 @@ const ProductForm = () => {
       // Log the data being sent
       console.log('Sending product data:', formData);
       
-      const response = await axios.post('http://localhost:5000/api/products', formData);
+      const response = await axios.post('https://marketplace-app-fj91.onrender.com/api/products', formData);
       console.log('Response:', response.data);
       
       alert('Product added successfully!');
@@ -141,6 +141,7 @@ const ProductForm = () => {
                 value={formData.name}
                 onChange={handleChange}
                 required
+                autoComplete='off'
                 style={{
                   width: '100%',
                   padding: '10px 12px',
@@ -149,9 +150,11 @@ const ProductForm = () => {
                   fontSize: '14px',
                   transition: 'border-color 0.2s ease',
                   outline: 'none',
-                  backgroundColor: '#fff',
-                  borderColor: error && !formData.name ? '#dc3545' : '#e0e0e0'
+                  color: 'black', 
+                  backgroundColor: 'white',
+                 
                 }}
+                
                 placeholder="Enter product name"
               />
             </div>
@@ -170,8 +173,8 @@ const ProductForm = () => {
                 value={formData.price}
                 onChange={handleChange}
                 required
-                min="0.01"
-                step="0.01"
+                autoComplete='off'
+                                step="0.01"
                 style={{
                   width: '100%',
                   padding: '10px 12px',
@@ -180,8 +183,8 @@ const ProductForm = () => {
                   fontSize: '14px',
                   transition: 'border-color 0.2s ease',
                   outline: 'none',
-                  backgroundColor: '#fff',
-                  borderColor: error && (!formData.price || isNaN(parseFloat(formData.price))) ? '#dc3545' : '#e0e0e0'
+                  color: 'black', 
+                  backgroundColor: 'white'
                 }}
                 placeholder="Enter price"
               />
@@ -200,6 +203,7 @@ const ProductForm = () => {
               type="text"
               name="imageUrl"
               value={formData.imageUrl}
+              autoComplete='off'
               onChange={handleChange}
               placeholder="https://example.com/image.jpg"
               style={{
@@ -210,7 +214,8 @@ const ProductForm = () => {
                 fontSize: '14px',
                 transition: 'border-color 0.2s ease',
                 outline: 'none',
-                backgroundColor: '#fff'
+                color: 'black', 
+                backgroundColor: 'white',
               }}
             />
           </div>
@@ -228,7 +233,7 @@ const ProductForm = () => {
               value={formData.description}
               onChange={handleChange}
               required
-              rows="5"
+              autoComplete='off'
               style={{
                 width: '100%',
                 padding: '10px 12px',
@@ -237,7 +242,8 @@ const ProductForm = () => {
                 fontSize: '14px',
                 transition: 'border-color 0.2s ease',
                 outline: 'none',
-                backgroundColor: '#fff',
+                color:'black',
+                backgroundColor:'white',
                 resize: 'vertical',
                 minHeight: '100px',
                 lineHeight: '1.5'

@@ -14,7 +14,7 @@ const Orders = () => {
     try {
       setIsLoading(true);
       setError(null);
-      const response = await axios.get('http://localhost:5000/api/orders');
+      const response = await axios.get('https://marketplace-app-fj91.onrender.com/api/orders');
       setOrders(response.data);
     } catch (error) {
       console.error('Error fetching orders:', error);

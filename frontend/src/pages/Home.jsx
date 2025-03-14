@@ -14,7 +14,7 @@ const Home = () => {
   const fetchProducts = async () => {
     try {
       setIsLoading(true);
-      const response = await axios.get('http://localhost:5000/api/products');
+      const response = await axios.get('https://marketplace-app-fj91.onrender.com/api/products');
       setProducts(response.data);
     } catch (error) {
       console.error('Error fetching products:', error);
@@ -38,7 +38,7 @@ const Home = () => {
       // Log the product details for debugging
       console.log('Placing order for product:', product);
       
-      await axios.post('http://localhost:5000/api/orders', {
+      await axios.post('https://marketplace-app-fj91.onrender.com/api/orders', {
         productId: product._id, // Use the Airtable record ID
         quantity: 1,
         buyerDetails
@@ -125,7 +125,7 @@ const Home = () => {
                 color: '#666',
                 fontSize: '14px'
               }}>
-                Product ID: {product.productId}
+                
               </div>
               <div style={{ 
                 height: '220px',
@@ -134,7 +134,7 @@ const Home = () => {
                 borderRadius: '8px'
               }}>
                 <img
-                  src={product.imageUrl || 'https://via.placeholder.com/300'}
+                  src={product.imageUrl }
                   alt={product.name}
                   style={{ 
                     width: '100%', 
